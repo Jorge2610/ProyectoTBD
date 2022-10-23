@@ -37,7 +37,7 @@ public class IngresarControlador {
             }
             id_usuario = conexion.validarUsuario(usuario, password, ip);
             if (id_usuario != 0) {
-                PrincipalControlador g = new PrincipalControlador(conexion, id_usuario);
+                PrincipalControlador g = new PrincipalControlador(conexion, id_usuario, usuario);
                 g.mostrarFrame();
                 gui.dispose();
             }

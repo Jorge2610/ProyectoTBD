@@ -39,7 +39,6 @@ public class PrincipalGUI extends JFrame{
 
     private void initFrame(){
         setSize(new Dimension(960, 540));
-        setTitle("Compra Facil");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);    
     }
 

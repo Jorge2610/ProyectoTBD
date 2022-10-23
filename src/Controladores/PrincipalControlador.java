@@ -3,8 +3,6 @@ package Controladores;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-import com.formdev.flatlaf.FlatDarkLaf;
-
 import Modelos.ConexionBD;
 import Vistas.PersonalPanel;
 import Vistas.PrincipalGUI;
@@ -13,21 +11,17 @@ import Vistas.VentasPanel;
 
 public class PrincipalControlador {
 
-    public static void main(String[] args) {
-        FlatDarkLaf.setup();
-        PrincipalControlador g = new PrincipalControlador(null, 1);
-        g.mostrarFrame();
-    }
-
     private PrincipalGUI gui;
     private ConexionBD conexion;
     private VentasPanel ventasPanel;
     private ProductosPanel productosPanel;
     private PersonalPanel personalPanel;
     private int idUsuario;
+    private String usuario;
     private ArrayList<Integer> interfaces;
 
-    public PrincipalControlador(ConexionBD c, int userId) {
+    public PrincipalControlador(ConexionBD c, int userId, String usuario) {
+        this.usuario = usuario;
         idUsuario = userId;
         conexion = c;
         ventasPanel = new VentasPanel();
@@ -44,6 +38,7 @@ public class PrincipalControlador {
     public void mostrarFrame() {
         gui.setLocationRelativeTo(null);
         obtenerInterfaces();
+        gui.setTitle("Usuario:  " + usuario);
         gui.setVisible(true);
         gui.setPanelContenido(ventasPanel);
     }
