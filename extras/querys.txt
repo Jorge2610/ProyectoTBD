@@ -1,0 +1,34 @@
+QUERYS
+
+1.- Obtener el total vendido de cada producto. 
+
+SELECT id_producto, sum(cantidad) as total
+FROM negocio.detalle_factura
+GROUP BY id_producto
+ORDER BY total DESC;
+
+2.- El monto total de ventas en un determinado periodo de tiempo
+
+SELECT sum(total_factura) as total
+FROM negocio.facturas
+WHERE fecha_factura >= '2022-08-01' AND fecha_factura <= '2022-10-31' 
+ORDER BY total DESC;
+
+3.- El total de ventas hechas por un usuario y el total de las mismas.
+
+SELECT id_usuario, count(id_factura) as ventas, sum(total_factura) as total
+FROM negocio.facturas
+WHERE id_usuario = "";
+GROUP BY id_usuario 
+ORDER BY total DESC;
+
+4.- El producto mas vendido de un determinado usuario
+
+SELECT id_producto, sum(cantidad) as total
+FROM (SELECT id_usuario, id_factura
+		FROM negocio.facturas
+		WHERE id_usuario = 2) AS uno, negocio.detalle_factura
+WHERE detalle_factura.id_factura = uno.id_factura
+GROUP BY id_producto
+ORDER BY total DESC
+--LIMIT 1;

@@ -1,0 +1,48 @@
+Usuarios:		Rol
+
+1	"Jorge"		1	
+2	"Marco"		2
+6	"Luis"		3
+8	"Hector"	4
+21	"Dorian"	2
+22	"Pedro"		4
+
+ROLES:
+1 CEO
+2 Finanzas
+3 Gerente de inventarios
+4 Ventas
+
+update_rol:
+
+UPDATE seguridad.user_rol SET id_rol = "" WHERE id_usuario = "";
+
+Funciones:
+1 Ventas
+2 Gestion productos
+3 Gestion financiera
+4 CEO
+
+update funcion:
+
+UPDATE seguridad.role_funciones SET id_funcion = "" WHERE id_rol = "";
+
+interfaz:
+1	"Ventas"
+2	"Venta"
+3	"Clientes"
+4	"Factura"
+5	"Informe Ventas"
+6	"Inventario"
+7	"Precios"
+8	"Informe Productos"
+9	"Productos"
+10	"Personal"
+11	"Gestion personal"
+12	"Planillas"
+13	"Informes personal"
+
+update interfaz:
+
+INSERT INTO seguridad.funcion_iu (id_funcion, id_interfaz, active) VALUES ("","",true);
+DELETE FROM seguridad.funcion_iu WHERE id_funcion = "" AND id_interfaz = "";
